@@ -59,11 +59,11 @@ export class CategoryRepository {
     if (params.search) {
       params.search = params.search.replaceAll("е", "[е|ё]");
       mainQuery
-        .where("name SIMILAR TO :searchQuery", {
-          searchQuery: `%${params.search}%`,
+        .where("name SIMILAR TO :search", {
+          search: `%${params.search}%`,
         })
-        .orWhere("description SIMILAR TO :searchQuery", {
-          searchQuery: `%${params.search}%`,
+        .orWhere("description SIMILAR TO :search", {
+          search: `%${params.search}%`,
         });
     } else {
       if (params.name) {
