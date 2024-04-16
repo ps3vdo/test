@@ -2,7 +2,6 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  Index,
   PrimaryGeneratedColumn,
 } from "typeorm";
 
@@ -14,11 +13,9 @@ export class Category {
   @Column({ unique: true, type: "varchar" })
   slug: string;
 
-  @Index({ fulltext: true })
   @Column({ type: "varchar" })
   name: string;
 
-  @Index({ fulltext: true })
   @Column({ type: "varchar", nullable: true })
   description?: string;
 
